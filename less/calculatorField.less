@@ -1,0 +1,18 @@
+.numeric_field-component {
+	.field-requirements {
+		color: @validation-error;
+		display: none;
+	}
+	.numeric-item-textbox {
+		width: 80%;
+
+		&:invalid {
+			background: lighten(@validation-error, 50%);
+			border: 2px @validation-error solid !important;
+
+			~ .field-requirements {
+				display: block;
+			}
+		}
+	}
+}

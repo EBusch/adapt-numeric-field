@@ -1,0 +1,19 @@
+{
+  "name": "adapt-contrib-numericField",
+  "version": "0.2.1",
+  "framework": ">=2.0.0",
+  "authors": [
+    "Daniel Pfeifffer <dpfeiffer@gowithfloat.com>",
+    "Eric Busch <ebusch@gowithfloat.com>"
+  ],
+  "homepage": "https://github.com/EBusch/adapt-numeric-field",
+  "displayName": "Limitable Numeric Field",
+  "component": "numeric",
+  "description": "A simple limitable numeric field component",
+  "main": "/js/adapt-contrib-numeric.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3"
+}

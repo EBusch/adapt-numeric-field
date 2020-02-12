@@ -1,0 +1,85 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
+  "properties":{
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
+    },
+    "field_label": {
+      "type": "string",
+      "required": true,
+      "title": "Instructions",
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "This is the label for the field",
+      "translatable": true
+    },
+    "prefix": {
+      "type": "string",
+      "required": true,
+      "title": "Prefix",
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": false
+    },
+    "suffix": {
+      "type": "string",
+      "required": true,
+      "title": "Suffix",
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": false
+    },
+    "variable_name": {
+      "type": "string",
+      "required": true,
+      "title": "Variable name",
+      "default": "",
+      "inputType": "Text",
+      "validators": [{
+          "type" : "regexp",
+          "regexp" : "[\\s\\d\\.()*+-=]",
+          "message" : "Must start with a lowercase letter and only contain lowercase letters and underscores.",
+          "match" : false
+        }
+      ],
+      "help": "This is the variable name.",
+      "translatable": false
+    },
+    "max_length": {
+      "type": "string",
+      "required": false,
+      "title": "Max length",
+      "default": "0",
+      "inputType": "Text",
+      "validators": [{
+          "type" : "regexp",
+          "regexp" : "^[0-9]+",
+          "message" : "Must be a number.",
+          "match" : true
+        }
+      ],
+      "help": "This is the maximum length of the number field, enter -1 for unlimited.",
+      "translatable": false
+    }
+  }
+}

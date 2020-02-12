@@ -1,0 +1,75 @@
+<script>
+    function validateKeyDown() {
+        // Note: This should be way less hard-coded and lame, but couldn't find a way to do it.
+        // Hashtag javascript.
+        if (event.key == "Backspace" || event.key == "Delete" || event.key == "ArrowLeft" || event.key == "ArrowRight") {
+            return;
+        }
+        
+        var disallowed = /^[a-zA-Z!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+        
+        if (disallowed.test(event.key)) {
+            event.preventDefault();
+        }
+    }
+
+    function validate() {
+        var x = document.getElementById("{{{variable_name}}}");
+        var newValue = x.value;
+        
+        if (isNaN(newValue)) {
+            newValue = newValue.replace(/\D/g, '');
+        }
+
+        if (newValue.length > {{{max_length}}}) {
+            newValue = x.value.substring(0, {{{max_length}}});
+        }
+
+        if (x.value != newValue) {
+            x.value = newValue;
+        }
+    }
+</script>
+
+<div class="component-inner" role="region" aria-label="{{_globals._components._text.ariaRegion}}">
+    <div class="{{_component}}">
+        {{> component this}}
+
+        <div class="{{_component}}-inner-text">
+            {{#if instructions}}
+            <div class="instructions">
+                {{instructions}}
+            </div>
+            {{/if}}
+
+            {{#if field_label}}
+            <label for="{{{variable_name}}}">{{{field_label}}}</label>
+            {{/if}}
+
+            <div class="field">
+
+                {{#if prefix}}
+                <label class="numeric-item-prefix component-item-text-color" for="{{{variable_name}}}"
+                    aria-label="{{{prefix}}}">
+                    {{{prefix}}}
+                </label>
+                {{/if}}
+
+                <input type="number" pattern="[0-9]*" step="any"
+                    class="numeric-item-textbox textinput-item-textbox" data-id="input-{{@index}}"
+                    id="{{{variable_name}}}" aria-labelledby="{{../_id}}-{{@index}}-aria" value="{{{_value}}}"
+                    role="textbox" onkeydown="validateKeyDown()" oninput="validate()">
+
+                <div class="field-requirements">Please only enter numbers</div>
+
+                {{#if suffix}}
+                <label class="numeric-item-suffix component-item-text-color" for="{{{variable_name}}}"
+                    aria-label="{{{suffix}}}">
+                    {{{suffix}}}
+                </label>
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</div>

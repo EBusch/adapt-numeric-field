@@ -1,0 +1,13 @@
+{
+    "_id": "c-05",
+    "_parentId": "b-05",
+    "_type": "component",
+    "_component": "numeric",
+    "_classes": "",
+    "_layout": "left",
+    "title": "Numeric Field",
+    "displayTitle": "Numeric Field",
+    "field_label": "Enter field label",
+    "variable_name": "Enter variable name",
+    "max_length": "Enter the max length of the number"
+}
